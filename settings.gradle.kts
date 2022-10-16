@@ -8,4 +8,4 @@ pluginManagement.repositories {
 }
 
 rootProject.name = "rust-fabric-example"
-include("rust-library:natives","rust-library:wrapper","fabric-example-mod")
+include("natives","fabric-example-mod")

@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-	rust project(":rust-library:natives")
+	rust project(":natives")
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
@@ -82,6 +82,6 @@ publishing {
 	}
 }
 runClient {
-	jvmArgs("--enable-native-access=ALL-UNNAMED", "--add-modules=jdk.incubator.foreign", "-Dexample_mod.native_lib=/Volumes/Store/Users/charles/Desktop/Coding/rust-test/rust-fabric-template/rust-library/natives/target/x86_64-apple-darwin/release/librust_library.dylib")
+	jvmArgs("--enable-native-access=ALL-UNNAMED", "--add-modules=jdk.incubator.foreign", "-Dexample_mod.native_lib=/Volumes/Store/Users/charles/Desktop/Coding/rust-test/rust-fabric-template/natives/target/x86_64-apple-darwin/release/librust_library.dylib")
 }
-tasks.getByName("build").dependsOn(":native-library:build")
+tasks.getByName("build").dependsOn(":natives:build")

@@ -1,10 +1,8 @@
 package net.fabricmc.example.natives;
 
-
 import jdk.incubator.foreign.CLinker;
 import jdk.incubator.foreign.FunctionDescriptor;
 import jdk.incubator.foreign.NativeSymbol;
-import net.fabricmc.example.ExampleMod;
 
 import java.lang.invoke.MethodHandle;
 import java.util.Optional;

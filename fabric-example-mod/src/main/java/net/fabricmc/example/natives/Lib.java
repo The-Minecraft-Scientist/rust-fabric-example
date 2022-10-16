@@ -21,8 +21,8 @@ public class Lib {
             return;
         }
         File nativeFile = extractNatives(new File(System.getProperty("user.dir"), "examplemod" + File.separator + "natives"));
-
-
+        System.load(nativeFile.getAbsolutePath());
+        nativeLookup = SymbolLookup.loaderLookup();
     }
     private static File extractNatives(File dstDirectory) {
         if (!dstDirectory.exists()) {
@@ -73,7 +73,7 @@ public class Lib {
     private enum Os {
         WINDOWS("windows"),
         GENERIC_LINUX("generic_linux"),
-        MAC("mac");
+        MAC("darwin");
 
         public final String name;
 
@@ -108,6 +108,7 @@ public class Lib {
             return switch (SystemUtils.OS_ARCH) {
                 case "x86" -> I686;
                 case "amd64" -> AMD64;
+                case "x86_64" -> AMD64;
                 case "aarch64" -> AARCH64;
                 default -> throw new UnsupportedOperationException("Unknown arch: " + SystemUtils.OS_ARCH);
             };
